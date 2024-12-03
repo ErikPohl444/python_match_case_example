@@ -63,27 +63,37 @@ if __name__ == '__main__':
         case [*b, "green"]:
             print(*b)
 
-    class Car:
+    class Car():
         
-        def __init__(self):
-            vehicle = "car"
+        def __init__(self, paint_color):
+            self.vehicle = "car"
+            self.color = paint_color
     
     class Honda(Car):
 
-        def __init__(self):
-            make = "Honda"
-            super().__init__()
+        def __init__(self, paint_color):
+            self.make = "Honda"
+            super().__init__(paint_color)
 
     # class matching
-    auto1 = Honda()
-    auto2 = Car()
+    auto1 = Honda("red")
+    auto2 = Car("blue")
+    auto3 = Honda("silver")
+
     match auto1:
         case Honda():
             print("a honda")
         case Car():
             print("a car")
-    match auto2:
+    match auto1:
+        # note: a Honda registers as a car
+        case Car():
+            print("a car")
         case Honda():
             print("a honda")
+    match auto3:
+        # note: a car does not register as a Honda
+        case Honda(color="silver"):
+            print("a silver honda")
         case Car():
             print("a car")
