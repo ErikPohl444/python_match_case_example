@@ -4,7 +4,7 @@ import json
 
 if __name__ == '__main__':
 
-    ## match case against a dict
+    # match case against a dict
     return_dict = {
         'parent_id': 1,
         'parent_name': 'parent1'
@@ -36,5 +36,54 @@ if __name__ == '__main__':
         case _:
             print("something wrong with json match")
 
+    # traditional seeking of parent_id
     if "parent_id" in return_json:
         print("yay?")
+
+    color_list = ["red", "yellow", "green"]
+    for color in color_list:
+        match color:
+            case "red":
+                print("stop")
+            case "yellow" | "green":
+                print("go")
+
+    match color_list:
+        case ["red", *a]:
+            print(a)
+        # does not match second item because it does not continue after matching first
+        case [*b, "green"] | (*b, "green"):
+            print(*b)
+
+    color_list = color_list[1:]
+    match color_list:
+        # no longer gets caught on this case
+        case ["red", *a]:
+            print(a)
+        case [*b, "green"]:
+            print(*b)
+
+    class Car:
+        
+        def __init__(self):
+            vehicle = "car"
+    
+    class Honda(Car):
+
+        def __init__(self):
+            make = "Honda"
+            super().__init__()
+
+    # class matching
+    auto1 = Honda()
+    auto2 = Car()
+    match auto1:
+        case Honda():
+            print("a honda")
+        case Car():
+            print("a car")
+    match auto2:
+        case Honda():
+            print("a honda")
+        case Car():
+            print("a car")
