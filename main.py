@@ -40,13 +40,16 @@ if __name__ == '__main__':
     if "parent_id" in return_json:
         print("yay?")
 
-    color_list = ["red", "yellow", "green"]
+    # match a color string against a string
+    color_list = ["red", "yellow", "green", "blue"]
     for color in color_list:
         match color:
             case "red":
                 print("stop")
             case "yellow" | "green":
                 print("go")
+            case r"\bl":
+                print("blue")
 
     match color_list:
         case ["red", *a]:
