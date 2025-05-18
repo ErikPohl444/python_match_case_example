@@ -10,18 +10,45 @@ This is going to be an example slash tutorial on match case
 
 If any
 
+### Getting Started
 
-## Getting Started
+This repository contains a Python tutorial and example code demonstrating the use of the `match`/`case` statement introduced in Python 3.10. The main script, `main.py`, includes examples of pattern matching with dictionaries, JSON, lists, strings, and custom classes.
 
-Instructions
+To get started, clone the repository and review the examples in `main.py`. You can run the script to see the output of various match/case patterns.
 
-## Prerequisites
+---
 
-I'll provide prereqs here.
+### Prerequisites
 
-## Installing
+- **Python 3.10 or later** is required, as the match/case statement does not exist in earlier versions.
+- No external libraries are required; the examples use only the Python standard library (`json`).
 
-I will provide installation steps here.
+---
+
+### Installing
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/ErikPohl444/python_match_case_example.git
+   cd python_match_case_example
+   ```
+
+2. (Optional) Set up a virtual environment:
+   ```sh
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies (if any):
+   ```sh
+   pip install -r requirements.txt
+   ```
+   *Note: Currently, `requirements.txt` is empty since only the standard library is used.*
+
+---
+
+
+
 
 ## Running the tests
 
